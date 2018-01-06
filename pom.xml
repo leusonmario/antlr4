@@ -122,7 +122,18 @@
                             </execution>
                         </executions>
                     </plugin>
-                </plugins>
+                <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>cobertura-maven-plugin</artifactId>
+          <version>2.7</version>
+          <configuration>
+              <format>xml</format>
+              <maxmem>256m</maxmem>
+              <!-- aggregated reports for multi-module projects -->
+              <aggregate>true</aggregate>
+          </configuration>
+         </plugin>
+        </plugins>
             </build>
         </profile>
     </profiles>
@@ -197,6 +208,7 @@
                 <!-- override the version inherited from the parent -->
                 <version>2.9</version>
                 <configuration>
+<testFailureIgnore>true</testFailureIgnore>
                     <quiet>true</quiet>
                 </configuration>
             </plugin>
@@ -207,6 +219,17 @@
                 <!-- override the version inherited from the parent -->
                 <version>1.4</version>
             </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>cobertura-maven-plugin</artifactId>
+          <version>2.7</version>
+          <configuration>
+              <format>xml</format>
+              <maxmem>256m</maxmem>
+              <!-- aggregated reports for multi-module projects -->
+              <aggregate>true</aggregate>
+          </configuration>
+         </plugin>
         </plugins>
     </build>
 </project>
